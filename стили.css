@@ -1,0 +1,19 @@
+h1 {
+	text-align:center;
+	background-color: red;
+	color: white;
+	font-family: verdana;
+	font-size: 20px;
+}
+h2{
+	color: blue;
+	text-align:center;
+	font-family: verdana;
+	font-size: 20px;
+}
+table, th, td {
+border: 1px solid black;
+  text-align: left;
+  border-width: medium;
+  border-collapse: collapse;
+}
