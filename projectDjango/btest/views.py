@@ -1,4 +1,4 @@
-from .models import Bb
+from .models import *
 from django.shortcuts import render
  
 def index(request):

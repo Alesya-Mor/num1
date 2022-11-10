@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Bb
+from .models import *
 
 class BbAdmin(admin.ModelAdmin):
   list_display = ('title', 'content', 'price', 'published')
@@ -7,7 +7,11 @@ class BbAdmin(admin.ModelAdmin):
   search_fields = ('title', 'content', 'price', 'published',)
 
 admin.site.register(Bb, BbAdmin)
-from .models import Rubric
-...
-admin.site.register(Rubric)
-list_display = ('title', 'content', 'price', 'published',)
+
+class RubricAdmin(admin.ModelAdmin):
+   list_display = ('name',)
+
+admin.site.register(Rubric,RubricAdmin )
+
+admin.site.register(Exponat)
+admin.site.register(Collection)
