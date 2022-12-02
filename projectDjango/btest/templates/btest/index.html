@@ -5,7 +5,7 @@
 	<title>Главная - Доска объявлений</title>
 </head>
 <body>
-	<h1>Объявления</h1>
+	<!--<h1>Объявления</h1>
 	{% for bb in bbs %}
 	<div>
 		<h2>{{ bb.title }}</h2>
@@ -14,14 +14,59 @@
 		<p>{{ bb.rubric.name}}</p>
 	</div>
 	{% endfor %}
+	-->
+	<h1>Коллекции</h1>
+	{% for collection in bbs %}
+	<div>
+		<p> Название коллекции - {{ collection.name }}</p>
+		<p> Описание коллекции - {{ collection.content }}</p>
+		<p> Дата начала коллекции - {{ collection.start_date}}</p>
+		<p> Дата окончания коллекции -{{ collection.fin_date}}</p>
+		<p> Зал, в котором размещена коллекция: {{ collection.zal}}</p>
+	</div>
+	{% endfor %}
 	
-	<h1> Рубрики </h1>
-	{% for rb in rbs1%}
-		<h2> {{ rb.name}} </h2>
-		{%  for bb in rb.bb_set.all %}
-		<h2>{{ bb.title }}</h2>
+	<h1>Экспонаты</h1>
+	{% for exponat in rbs1 %}
+	<div>
+		<h3> Название экспоната - {{ exponat.name }}</h3>
+		<p> Краткое описание: {{ exponat.content }}</p>
+		<p> Стоимость: {{ exponat.stoimost}}</p>
+		<p> Век создания: {{ exponat.vek_sozdania}}</p>
+		<p>Высота экспоната:{{ exponat.visota}}</p>
+		<p>Ширина экспоната: {{ exponat.shirina}}</p>
+		<p>Длина экспоната: {{ exponat.dlina}}</p>
+		<p>Коллекция, к котороый относится: {{ exponat.collection}}</p>
+		<p>Цена: {{ exponat.price}}</p>
+	</div>
+	{% endfor %}
+	
+	<h1>Выставочные залы</h1>
+	{% for zal in tbs %}
+	<div>
+		<h2> Зал {{ zal.name }}</h2>
+		{% for collection in zal.collection_set.all %}
+		<div>
+		<h2>Название коллекции: {{ collection.name }}</h2>
+		<p>Даты начала - окончания: {{ collection.start_date}} - {{ collection.fin_date}}</p>
+		</div>
 		{% endfor %}
-	
+		
+		{% for exponat in collection.exponat_set.all %}
+		<div>
+		<h2>{{ exponat.name }}</h2>
+		<p>{{ exponat.content }}</p>
+		<p>{{ exponat.stoimost}}</p>
+		<p>{{ exponat.vek_sozdania}}</p>
+		<p>{{ exponat.visota}}</p>
+		<p>{{ exponat.shirina}}</p>
+		<p>{{ exponat.dlina}}</p>
+		<p>{{ exponat.collection}}</p>
+		<p>{{ exponat.price}}</p>
+		</div>
+		{% endfor %}
+		
+	</div>
 	{% endfor %}
 	
 </body>

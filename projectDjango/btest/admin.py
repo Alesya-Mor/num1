@@ -13,5 +13,13 @@ class RubricAdmin(admin.ModelAdmin):
 
 admin.site.register(Rubric,RubricAdmin )
 
-admin.site.register(Exponat)
+class ExponatAdmin(admin.ModelAdmin):
+   list_display = ('name', 'collection', )
+   list_display_links = ('name', 'collection', )
+   search_fields = ('name', 'collection', )
+   
+admin.site.register(Exponat, ExponatAdmin)
+
+
 admin.site.register(Collection)
+admin.site.register(Zal)
